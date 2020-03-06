@@ -24,8 +24,7 @@ public class Controller {
 
         ApiError error = new ApiError("CarNotFound", "No car was found for this car ID.");
         apiException.setError(error);
-
-        log.info("......... Sleeeeeeeeeeeeep!");
+        log.info("......... Sleeeeeeeeeeeeeping for " + timeout);
         Thread.sleep(timeout);
         log.info("......... Awake!");
         return new ApiResponse(apiException, HttpStatus.NOT_FOUND);
