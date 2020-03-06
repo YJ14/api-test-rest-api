@@ -1,5 +1,6 @@
 package com.rest.api;//
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping
+@Slf4j
 public class Controller {
 
 
@@ -23,8 +25,9 @@ public class Controller {
         ApiError error = new ApiError("CarNotFound", "No car was found for this car ID.");
         apiException.setError(error);
 
+        log.info("......... Sleeeeeeeeeeeeep!");
         Thread.sleep(timeout);
-
+        log.info("......... Awake!");
         return new ApiResponse(apiException, HttpStatus.NOT_FOUND);
 
     }
