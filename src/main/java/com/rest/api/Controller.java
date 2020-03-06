@@ -15,8 +15,11 @@ public class Controller {
     @ResponseBody
     public ApiResponse search(HttpServletRequest request) throws Exception{
         ApiException apiException = new ApiException();
+
         ApiError error = new ApiError("CarNotFound", "No car was found for this car ID.");
         apiException.setError(error);
+
+        Thread.sleep(9000);
 
         return new ApiResponse(apiException, HttpStatus.NOT_FOUND);
 
