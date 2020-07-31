@@ -22,12 +22,12 @@ public class Controller {
     public ApiResponse search(HttpServletRequest request) throws Exception{
         ApiException apiException = new ApiException();
 
-        ApiError error = new ApiError("CarNotFound", "No car was found for this car ID.");
+        ApiError error = new ApiError("Service Unavailable", "Service is down!");
         apiException.setError(error);
         log.info("......... Sleeeeeeeeeeeeeping for " + timeout);
         Thread.sleep(timeout);
         log.info("......... Awake!");
-        return new ApiResponse(apiException, HttpStatus.NOT_FOUND);
+        return new ApiResponse(apiException, HttpStatus.SERVICE_UNAVAILABLE);
 
     }
 
